@@ -1,0 +1,132 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.container .wrapper {
+  width: 400px;
+  max-width: 100%;
+  max-height: 100vh;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.container .wrapper header {
+  border-bottom: 1px solid black;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding: 1rem;
+  color: white;
+}
+.container .wrapper header:before {
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  background-image: url("images/oeuvre-numerique-motifs-tourbillonnants-fleurs-generatives-ai.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px 10px 0 0;
+  z-index: -1;
+  opacity: 1;
+}
+.container .wrapper header #clear {
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 1.2rem;
+  transition: 0.1s ease-out;
+}
+.container .wrapper header #clear:hover {
+  rotate: 30deg;
+}
+.container .wrapper header .header-top,
+.container .wrapper header .header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .wrapper header .header-top #date,
+.container .wrapper header .header-top #header-pic,
+.container .wrapper header .header-bottom #date,
+.container .wrapper header .header-bottom #header-pic {
+  flex-grow: 2;
+}
+.container .wrapper .btn-group {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+.container .wrapper .btn-group button {
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.container .wrapper .content {
+  padding: 1rem;
+  min-height: 300px;
+}
+.container .wrapper .content #list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.container .wrapper .content #list .item {
+  display: flex;
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+.container .wrapper .content #list .item i {
+  cursor: pointer;
+}
+.container .wrapper .content #list .item .fa-circle-check {
+  color: #6eb200;
+}
+.container .wrapper .content #list .item .lineThrough {
+  text-decoration: line-through;
+}
+.container .wrapper .content #list .item .text {
+  margin-left: 10px;
+}
+.container .wrapper .content #list .item .delete {
+  margin-left: auto;
+}
+.container .wrapper .content #list .item .delete:hover {
+  color: red;
+  transition: 0.2s ease-out;
+}
+.container .wrapper .add-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.container .wrapper .add-item .fa-circle-plus {
+  position: absolute;
+  font-size: 1.6rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+.container .wrapper .add-item #input {
+  padding-left: 4rem;
+  font-size: 1.3rem;
+  width: 100%;
+  height: 50px;
+  border: transparent;
+}
+.container .wrapper .add-item #input:focus {
+  outline: none;
+}/*# sourceMappingURL=style.css.map */
