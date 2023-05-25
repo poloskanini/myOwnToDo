@@ -25,7 +25,7 @@ function addToDo (toDo, id, done, trash) {
 
   const text = `<li class="item">
   <i class="fa-regular ${DONE} complete" job="complete" id="${id}"></i>
-  <p class="text ${LINE}">${toDo}</p>
+  <input class="text" ${LINE}" value="${toDo}" job="edit">
   <i class="fa-regular fa-trash-can delete" job="delete" id="${id}"></i>
   </li>`
   
@@ -85,13 +85,33 @@ plusCircle.addEventListener("click", () => {
 
     if (toDo) {
       addToDo(toDo)
+
+      // Ajoute la tâche à la liste storageList
+      storageList.push(
+        {
+          name: toDo,
+          id: id,
+          done: false,
+          trash: false
+        }
+      )
+      // Ajoute le TODO à la mémoire locale du LOCAL STORAGE
+      localStorage.setItem("TODO", JSON.stringify(storageList));
+      id++;
     }
     input.value = ""
 })
 
+// Fonction qui édite le TODO
+
+function editToDo (element) {
+  //TODO: Part 2 : A continuer
+}
+
 // Fonction qui remove un élément
 function removeToDo (element) {
   element.parentNode.parentNode.removeChild(element.parentNode)
+  storageList[element.id].trash = true;
 }
 
 // Fonction qui raye une tâche effectuée
@@ -99,9 +119,8 @@ function completeToDo (element) {
   element.classList.toggle(CHECK)
   element.classList.toggle(UNCHECK)
   element.parentNode.querySelector('.text').classList.toggle(LINE_THROUGH);
-  storageList[element.id].done ? element.parentNode.classList.remove('is-completed') : element.parentNode.classList.add('is-completed')
+  // storageList[element.id].done ? element.parentNode.classList.remove('is-completed') : element.parentNode.classList.add('is-completed')
   storageList[element.id].done = storageList[element.id].done ? false : true;
-  console.log(storageList[element.id].done)
 }
 
 // Cibler un élément dans la list, et définir le comportement dynamique à lui donner
@@ -109,6 +128,10 @@ list.addEventListener("click", function(event) {
   let element = event.target; // J'obtiens l'élément sur lequel j'ai cliqué
   let elementJob = element.attributes.job.value;
   // Action pour TODO Complete
+  //TODO: Part 1
+  if (elementJob === "edit") {
+    editToDo(element);
+  }
   if (elementJob === "complete") {
     completeToDo(element);
   } else if (elementJob === "delete") {
@@ -155,7 +178,9 @@ const showDate= () => {
   hourHeader.innerHTML = time;
 }
 
-setInterval(showDate, 1000)
+setInterval(showDate, 1000);
+
+
 
 // Filter
 document.querySelectorAll('.btn-group button').forEach(button => {
@@ -179,3 +204,14 @@ function toggleFilter (e) {
    list.classList.remove('hide-todo')
   }
 };
+
+//TODO: Editer les TODO items (inputs)
+
+// Si l'input est édité (onchange)
+
+// Si la nouvelle valeur est différente de l'ancienne
+
+// Si on clique sur OK,
+  //Stocker dans local storage
+
+// sinon Annuler

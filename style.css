@@ -19,7 +19,7 @@ body .container .wrapper {
   width: 400px;
   max-width: 100%;
   max-height: 100vh;
-  border: 1px solid black;
+  border: 1 px solid black;
   border-radius: 10px;
   margin-top: 5rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -41,7 +41,7 @@ body .container .wrapper header:before {
   top: 0;
   bottom: 0;
   position: absolute;
-  background-image: url("images/oeuvre-numerique-motifs-tourbillonnants-fleurs-generatives-ai.jpg");
+  background-image: url("images/oeuvre-numerique-motifs-tourbillonnants-fleurs-generatives-ai-sm.png");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px 10px 0 0;
@@ -92,6 +92,7 @@ body .container .wrapper .content-wrapper .content #list {
 }
 body .container .wrapper .content-wrapper .content #list .item {
   display: flex;
+  align-items: center;
   margin: 1rem;
   font-size: 1.2rem;
 }
@@ -106,6 +107,8 @@ body .container .wrapper .content-wrapper .content #list .item .lineThrough {
 }
 body .container .wrapper .content-wrapper .content #list .item .text {
   margin-left: 10px;
+  margin-bottom: 0;
+  border: none;
 }
 body .container .wrapper .content-wrapper .content #list .item .delete {
   margin-left: auto;
