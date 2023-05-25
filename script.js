@@ -99,6 +99,7 @@ function completeToDo (element) {
   element.classList.toggle(CHECK)
   element.classList.toggle(UNCHECK)
   element.parentNode.querySelector('.text').classList.toggle(LINE_THROUGH);
+  storageList[element.id].done ? element.parentNode.classList.remove('is-completed') : element.parentNode.classList.add('is-completed')
   storageList[element.id].done = storageList[element.id].done ? false : true;
   console.log(storageList[element.id].done)
 }
@@ -106,7 +107,6 @@ function completeToDo (element) {
 // Cibler un élément dans la list, et définir le comportement dynamique à lui donner
 list.addEventListener("click", function(event) {
   let element = event.target; // J'obtiens l'élément sur lequel j'ai cliqué
-  let elementId = event.target.id;
   let elementJob = element.attributes.job.value;
   // Action pour TODO Complete
   if (elementJob === "complete") {
@@ -165,10 +165,9 @@ document.querySelectorAll('.btn-group button').forEach(button => {
 function toggleFilter (e) {
 
   const filter = e.currentTarget.getAttribute('data-filter')
-
   e.currentTarget.parentElement.querySelector('.active').classList.remove('active');
   e.currentTarget.classList.add('active');
-
+  
   if (filter === 'done') {
    list.classList.add('hide-todo')
    list.classList.remove('hide-completed')
